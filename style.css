@@ -1,0 +1,26 @@
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#inputBar {
+	width: 50%;
+	margin-left:25%;
+	margin-top:25%;
+	font-size: 32px;
+	color: #666;
+	display: none;
+}
+
+#message {
+	text-align: center;
+	margin-top: 5%;
+	font-size: 32px;
+	margin-top: 2%;
+	font-family:sans-serif;
+	color: #666;
+	display: none;
+}
