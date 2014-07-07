@@ -28,7 +28,8 @@ $( document ).ready(function() {
 	$("#input").submit(function(event) {
 		myRootRef.push({
    			message: $("#inputBar").val(),
-   			date: (new Date()).toString()
+   			date: (new Date()).toString(),
+   			user: navigator.userAgent
 		});
   		event.preventDefault();
   		this.reset();
