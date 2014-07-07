@@ -32,15 +32,17 @@ $( document ).ready(function() {
 	}
 
 	$("#input").submit(function(event) {
-		myRootRef.push({
-   			message: $("#inputBar").val(),
-   			date: (new Date()).toString(),
-   			user: navigator.userAgent
-		});
-  		event.preventDefault();
-  		this.reset();
-  		message.fadeIn(600, function(){});
-  		setTimeout(messageOut, 1200);
+		event.preventDefault();
+		if ($("#inputBar").val() != "") {
+			myRootRef.push({
+	   			message: $("#inputBar").val(),
+	   			date: (new Date()).toString(),
+	   			user: navigator.userAgent
+			});
+	  		message.fadeIn(600, function(){});
+	  		setTimeout(messageOut, 1200);
+	  	}
+	  	this.reset();
 	});
 
 });
