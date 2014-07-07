@@ -6,10 +6,19 @@
     user-select: none;
 }
 
+#banner {
+	opacity: 0.7;
+	width: 12%;
+	height: 12%;
+	margin-left: 44%;
+	margin-top: 8%;
+	display: none;
+}
+
 #inputBar {
 	width: 50%;
 	margin-left:25%;
-	margin-top:25%;
+	margin-top:2%;
 	font-size: 32px;
 	color: #666;
 	display: none;

@@ -6,14 +6,20 @@ $( document ).ready(function() {
 	var myRootRef = new Firebase('https://popping-fire-5741.firebaseIO.com');
 
 	// Squome main logic
+	var banner = $("#banner");
 	var inputBar = $("#inputBar");
 	var message = $("#message");
+
+	loadBanner = function() {
+		banner.fadeIn(800, function(){});
+	}
 
 	loadBar = function() {
 		inputBar.fadeIn(800, function(){});
 	}
-
-	setTimeout(loadBar, 800);
+	
+	setTimeout(loadBanner, 100);
+	setTimeout(loadBar, 100);
 
 	messageOut = function() {
 		message.fadeOut(600, function(){});
