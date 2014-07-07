@@ -5,6 +5,12 @@ $( document ).ready(function() {
 	// Firebase setup
 	var myRootRef = new Firebase('https://popping-fire-5741.firebaseIO.com');
 
+	myRootRef.push({
+   		date: (new Date()).toString(),
+   		connection: "User connected",
+   		user: navigator.userAgent
+	});
+
 	// Squome main logic
 	var banner = $("#banner");
 	var inputBar = $("#inputBar");
