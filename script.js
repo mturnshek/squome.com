@@ -11,11 +11,13 @@ $( document ).ready(function() {
    		user: navigator.userAgent
 	});
 
-	// Squome main logic
+	// Setting the DOM elements to variables
 	var banner = $("#banner");
 	var inputBar = $("#inputBar");
 	var message = $("#message");
 
+
+	// Squome fading logic
 	loadBanner = function() {
 		banner.fadeIn(800, function(){});
 	}
@@ -23,7 +25,7 @@ $( document ).ready(function() {
 	loadBar = function() {
 		inputBar.fadeIn(800, function(){});
 	}
-	
+
 	setTimeout(loadBanner, 100);
 	setTimeout(loadBar, 100);
 
@@ -31,8 +33,17 @@ $( document ).ready(function() {
 		message.fadeOut(600, function(){});
 	}
 
+	// Keyword function calls
+	yo = function() {
+		apitokenvalue = "8ffe3194-fd3a-16cc-7de7-cbe211bc1515"
+		$.post('http://api.justyo.co/yoall/',
+			   {'api_token': apitokenvalue });
+	}
+
+	// Eval loop
 	$("#input").submit(function(event) {
 		event.preventDefault();
+		// This is to prevent someone from spamming no message
 		if ($("#inputBar").val() != "") {
 			myRootRef.push({
 	   			message: $("#inputBar").val(),
@@ -42,6 +53,15 @@ $( document ).ready(function() {
 	  		message.fadeIn(600, function(){});
 	  		setTimeout(messageOut, 1200);
 	  	}
+
+	  	// Keywords //
+
+	  	// "yo"
+	  	// This sends a yo to everyone that has yo'd squome
+	  	if ($("#inputBar").val() == "yo") {
+			yo();
+		}
+
 	  	this.reset();
 	});
 
