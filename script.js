@@ -59,7 +59,8 @@ $( document ).ready(function() {
 	  	// "yo"
 	  	// This sends a yo to everyone that has yo'd squome
 	  	if ($("#inputBar").val() == "yo") {
-			yo();
+			//yo();
+			console.log("yo");
 		}
 
 	  	this.reset();
