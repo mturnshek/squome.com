@@ -5,13 +5,18 @@ $( document ).ready(function() {
 	// Firebase setup
 	var myRootRef = new Firebase('https://popping-fire-5741.firebaseIO.com');
 
+	// This also cluttered things.
+	// While more information is nice, it's better to just have messages.
+	/*
 	myRootRef.push({
    		date: (new Date()).toString(),
    		connection: "User connected",
    		user: navigator.userAgent
 	});
+	*/
 
 	// Setting the DOM elements to variables
+	var background = $("#background");
 	var banner = $("#banner");
 	var inputBar = $("#inputBar");
 	var message = $("#message");
@@ -23,8 +28,14 @@ $( document ).ready(function() {
 	loadBar = function() {
 		inputBar.fadeIn(800, function(){});
 	}
+	loadBackground = function() {
+		background.fadeIn(800, function(){});
+	}
+
 	setTimeout(loadBanner, 100);
 	setTimeout(loadBar, 100);
+	setTimeout(loadBackground, 100);
+
 	messageOut = function() {
 		message.fadeOut(600, function(){});
 	}
@@ -45,12 +56,14 @@ $( document ).ready(function() {
 	// Eval loop
 	$("#input").submit(function(event) {
 		event.preventDefault();
-		// This is to prevent someone from spamming no message
-		if ($("#inputBar").val() != "") {
+		// "yo" doesn't appear in the logs
+		// blank messages don't appear in the logs
+		if (($("#inputBar").val() != "") and
+		   ($("#inputBar").val() != "yo")) {
 			myRootRef.push({
 	   			message: $("#inputBar").val(),
-	   			date: (new Date()).toString(),
-	   			user: navigator.userAgent
+	   			date: (new Date()).toString()
+	   			// user: navigator.userAgent // This was sort of cluttered
 			});
 	  		message.fadeIn(600, function(){});
 	  		setTimeout(messageOut, 1200);
