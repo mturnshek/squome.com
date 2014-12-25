@@ -5,36 +5,23 @@ $( document ).ready(function() {
 	// Firebase setup
 	var myRootRef = new Firebase('https://popping-fire-5741.firebaseIO.com');
 
-	// This also cluttered things.
-	// While more information is nice, it's better to just have messages.
-	/*
-	myRootRef.push({
-   		date: (new Date()).toString(),
-   		connection: "User connected",
-   		user: navigator.userAgent
-	});
-	*/
-
 	// Setting the DOM elements to variables
-	var background = $("#background");
 	var banner = $("#banner");
 	var inputBar = $("#inputBar");
 	var message = $("#message");
 
 	// Squome fading logic
+	document.body.style.opacity = .8; // so green can shade the website
+
 	loadBanner = function() {
 		banner.fadeIn(800, function(){});
 	}
 	loadBar = function() {
 		inputBar.fadeIn(800, function(){});
 	}
-	loadBackground = function() {
-		background.fadeIn(800, function(){});
-	}
 
 	setTimeout(loadBanner, 100);
 	setTimeout(loadBar, 100);
-	setTimeout(loadBackground, 100);
 
 	messageOut = function() {
 		message.fadeOut(600, function(){});
@@ -53,6 +40,10 @@ $( document ).ready(function() {
 		}
 	}
 
+	green = function() {
+		document.body.style.background = "#C5E3BF";
+	}
+
 	// Eval loop
 	$("#input").submit(function(event) {
 		event.preventDefault();
@@ -63,7 +54,6 @@ $( document ).ready(function() {
 				myRootRef.push({
 	   				message: $("#inputBar").val(),
 	   				date: (new Date()).toString()
-	   				// user: navigator.userAgent // This was sort of cluttered
 				});
 			}
 	  		message.fadeIn(600, function(){});
@@ -76,6 +66,9 @@ $( document ).ready(function() {
 	  	// This sends a yo to everyone that has yo'd squome
 	  	if ($("#inputBar").val() == "yo") {
 			yo();
+		}
+		if ($("#inputBar").val() == "green") {
+			green();
 		}
 
 	  	this.reset();
