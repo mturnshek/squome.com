@@ -58,13 +58,14 @@ $( document ).ready(function() {
 		event.preventDefault();
 		// "yo" doesn't appear in the logs
 		// blank messages don't appear in the logs
-		if (($("#inputBar").val() != "") and
-		   ($("#inputBar").val() != "yo")) {
-			myRootRef.push({
-	   			message: $("#inputBar").val(),
-	   			date: (new Date()).toString()
-	   			// user: navigator.userAgent // This was sort of cluttered
-			});
+		if ($("#inputBar").val() != "") {
+			if ($("#inputBar").val() != "yo") {
+				myRootRef.push({
+	   				message: $("#inputBar").val(),
+	   				date: (new Date()).toString()
+	   				// user: navigator.userAgent // This was sort of cluttered
+				});
+			}
 	  		message.fadeIn(600, function(){});
 	  		setTimeout(messageOut, 1200);
 	  	}
