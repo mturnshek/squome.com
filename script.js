@@ -29,6 +29,8 @@ $( document ).ready(function() {
 
 	// Keywords
 
+	// If this function has not been called in the last 30 seconds,
+	// send a yo to everyone who has yo'd squome
 	yoTime = 0;
 	yo = function() {
 		yoCooldown = 30000
