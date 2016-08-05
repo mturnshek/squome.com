@@ -1,8 +1,5 @@
-// Squome.com
-
 $( document ).ready(function() {
 
-	// Firebase setup
 	var myRootRef = new Firebase('https://popping-fire-5741.firebaseIO.com');
 
 	// Setting the DOM elements to variables
@@ -10,9 +7,9 @@ $( document ).ready(function() {
 	var inputBar = $("#inputBar");
 	var message = $("#message");
 
-	// Squome fading logic
 	document.body.style.opacity = .8; // so green can shade the website
 
+	// Fading
 	loadBanner = function() {
 		banner.fadeIn(800, function(){});
 	}
@@ -27,10 +24,6 @@ $( document ).ready(function() {
 		message.fadeOut(600, function(){});
 	}
 
-	// Keywords
-
-	// If this function has not been called in the last 30 seconds,
-	// send a yo to everyone who has yo'd squome
 	yoTime = 0;
 	yo = function() {
 		yoCooldown = 30000
@@ -46,11 +39,9 @@ $( document ).ready(function() {
 		document.body.style.background = "#C5E3BF";
 	}
 
-	// Eval loop
 	$("#input").submit(function(event) {
 		event.preventDefault();
-		// "yo" doesn't appear in the logs
-		// blank messages don't appear in the logs
+		// 
 		if ($("#inputBar").val() != "") {
 			if ($("#inputBar").val() != "yo") {
 				myRootRef.push({
@@ -62,10 +53,7 @@ $( document ).ready(function() {
 	  		setTimeout(messageOut, 1200);
 	  	}
 
-	  	// Keywords //
-
-	  	// "yo"
-	  	// This sends a yo to everyone that has yo'd squome
+	  	// Keywords
 	  	if ($("#inputBar").val() == "yo") {
 			yo();
 		}
@@ -75,5 +63,4 @@ $( document ).ready(function() {
 
 	  	this.reset();
 	});
-
 });
