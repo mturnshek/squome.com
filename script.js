@@ -2,7 +2,6 @@ $( document ).ready(function() {
 
 	var myRootRef = new Firebase('https://popping-fire-5741.firebaseIO.com');
 
-	// Setting the DOM elements to variables
 	var banner = $("#banner");
 	var inputBar = $("#inputBar");
 	var message = $("#message");
